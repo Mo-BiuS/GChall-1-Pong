@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhx376raoawn0"
+path="res://.godot/imported/Score sound.wav-acf1d8867ad05b7a077515ce833f9bce.sample"
+
+[deps]
+
+source_file="res://Ressources/Music/Effect/Score sound.wav"
+dest_files=["res://.godot/imported/Score sound.wav-acf1d8867ad05b7a077515ce833f9bce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

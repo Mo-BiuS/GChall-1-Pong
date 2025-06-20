@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bf5s40bi6sa73"
+path="res://.godot/imported/ball bounce sound.wav-e9518737f6ea0f717351688f0e84f468.sample"
+
+[deps]
+
+source_file="res://Ressources/Music/Effect/ball bounce sound.wav"
+dest_files=["res://.godot/imported/ball bounce sound.wav-e9518737f6ea0f717351688f0e84f468.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

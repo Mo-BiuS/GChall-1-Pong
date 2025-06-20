@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cf4f86wtpb1ko"
-path="res://.godot/imported/FSEX300.ttf-51bde153a0c519ba1e07b47b2077b27b.fontdata"
+path="res://.godot/imported/FSEX300.ttf-700f046576ff732216c31b7c23e2cf72.fontdata"
 
 [deps]
 
-source_file="res://Ressources/Font/FSEX300.ttf"
-dest_files=["res://.godot/imported/FSEX300.ttf-51bde153a0c519ba1e07b47b2077b27b.fontdata"]
+source_file="res://Ressources/Fonts/FSEX300.ttf"
+dest_files=["res://.godot/imported/FSEX300.ttf-700f046576ff732216c31b7c23e2cf72.fontdata"]
 
 [params]
 

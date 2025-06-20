@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://p3w5iiau5xoi"
-path="res://.godot/imported/Paddle 2.png-74264940cc6d7d1f3ad3f906d76840e7.ctex"
+path="res://.godot/imported/Paddle 2.png-975f0d0907079c0dcafefccf07b4463e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ressources/Texture/Paddle 2.png"
-dest_files=["res://.godot/imported/Paddle 2.png-74264940cc6d7d1f3ad3f906d76840e7.ctex"]
+source_file="res://Ressources/Sprites/Paddle 2.png"
+dest_files=["res://.godot/imported/Paddle 2.png-975f0d0907079c0dcafefccf07b4463e.ctex"]
 
 [params]
 

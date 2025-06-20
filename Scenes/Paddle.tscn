@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6ug33d2qprq6"]
+
+[ext_resource type="Texture2D" uid="uid://d0ow4bh18tvne" path="res://Ressources/Sprites/Paddle 1.png" id="1_1u0e0"]
+[ext_resource type="Script" uid="uid://bvkan1wlih2cx" path="res://Scenes/Paddle.gd" id="1_8wypp"]
+
+[node name="Paddle" type="Sprite2D"]
+texture = ExtResource("1_1u0e0")
+script = ExtResource("1_8wypp")

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bf5s40bi6sa73"
-path="res://.godot/imported/ball bounce sound.wav-e9518737f6ea0f717351688f0e84f468.sample"
+path="res://.godot/imported/ball bounce sound.wav-f7fcf2c4d5c1f7032c82786b866a9ca8.sample"
 
 [deps]
 
-source_file="res://Ressources/Music/Effect/ball bounce sound.wav"
-dest_files=["res://.godot/imported/ball bounce sound.wav-e9518737f6ea0f717351688f0e84f468.sample"]
+source_file="res://Ressources/Musics/Effect/ball bounce sound.wav"
+dest_files=["res://.godot/imported/ball bounce sound.wav-f7fcf2c4d5c1f7032c82786b866a9ca8.sample"]
 
 [params]
 

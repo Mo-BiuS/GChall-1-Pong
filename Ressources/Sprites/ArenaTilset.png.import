@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtm5vkpes7sx6"
-path="res://.godot/imported/Ball.png-af45eea1eb4f7b5d679918be2ec79b4d.ctex"
+uid="uid://bmeornx563nu0"
+path="res://.godot/imported/ArenaTilset.png-e4723eab6de6c49d0a16b391d8ab7ad2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ressources/Texture/Ball.png"
-dest_files=["res://.godot/imported/Ball.png-af45eea1eb4f7b5d679918be2ec79b4d.ctex"]
+source_file="res://Ressources/Sprites/ArenaTilset.png"
+dest_files=["res://.godot/imported/ArenaTilset.png-e4723eab6de6c49d0a16b391d8ab7ad2.ctex"]
 
 [params]
 

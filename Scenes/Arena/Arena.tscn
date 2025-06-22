@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://cwpysaabasg03"]
+[gd_scene load_steps=12 format=4 uid="uid://cwpysaabasg03"]
 
 [ext_resource type="Texture2D" uid="uid://bmeornx563nu0" path="res://Ressources/Sprites/Tilesets/ArenaTilset.png" id="1_0g2wx"]
-[ext_resource type="Script" uid="uid://dhjrko6ngb2g5" path="res://Scenes/Arena.gd" id="1_4f205"]
-[ext_resource type="Script" uid="uid://n76so11io55l" path="res://Scenes/TileMap.gd" id="2_pyk7t"]
-[ext_resource type="Shader" uid="uid://c2hc4xcyds27n" path="res://Scenes/TileSetShadow.gdshader" id="2_x00a1"]
-[ext_resource type="PackedScene" uid="uid://c1t1nywkhjtl2" path="res://Scenes/UI.tscn" id="5_4f205"]
-[ext_resource type="Script" uid="uid://36wslyrssn18" path="res://Scenes/SoundHandler.gd" id="5_bugre"]
-[ext_resource type="AudioStream" uid="uid://bf5s40bi6sa73" path="res://Ressources/Musics/Effect/ball bounce sound.wav" id="6_2tw1v"]
+[ext_resource type="Script" uid="uid://dhjrko6ngb2g5" path="res://Scenes/Arena/Arena.gd" id="1_4f205"]
+[ext_resource type="Script" uid="uid://n76so11io55l" path="res://Scenes/Arena/TileMap.gd" id="2_pyk7t"]
+[ext_resource type="Shader" uid="uid://c2hc4xcyds27n" path="res://Shaders/TileSetShadow.gdshader" id="2_x00a1"]
+[ext_resource type="PackedScene" uid="uid://c1t1nywkhjtl2" path="res://Scenes/UI/ArenaUI.tscn" id="5_4f205"]
+[ext_resource type="Script" uid="uid://36wslyrssn18" path="res://Scenes/Arena/SoundHandler.gd" id="5_bugre"]
 [ext_resource type="AudioStream" uid="uid://bhx376raoawn0" path="res://Ressources/Musics/Effect/Score sound.wav" id="7_0ds76"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4f205"]
@@ -180,15 +179,12 @@ position = Vector2(1184, 384)
 [node name="SoundHander" type="Node" parent="."]
 script = ExtResource("5_bugre")
 
-[node name="SoundBallBounce" type="AudioStreamPlayer" parent="SoundHander"]
-stream = ExtResource("6_2tw1v")
-
 [node name="SoundScore" type="AudioStreamPlayer" parent="SoundHander"]
 stream = ExtResource("7_0ds76")
 
-[node name="UI" parent="." instance=ExtResource("5_4f205")]
+[node name="ArenaUI" parent="." instance=ExtResource("5_4f205")]
 
 [connection signal="body_entered" from="GoalsList/LeftGoal" to="." method="goalLeft"]
 [connection signal="body_entered" from="GoalsList/RightGoal" to="." method="goalRight"]
-[connection signal="replay" from="UI" to="." method="replay"]
-[connection signal="toMenu" from="UI" to="." method="_on_ui_to_menu"]
+[connection signal="replay" from="ArenaUI" to="." method="replay"]
+[connection signal="toMenu" from="ArenaUI" to="." method="_on_ui_to_menu"]

@@ -6,10 +6,10 @@ var state
 
 signal toMenu;
 
-const PADDLE_SCENE:PackedScene = preload("res://Scenes/Paddle.tscn")
-const BALL_SCENE:PackedScene   = preload("res://Scenes/Ball.tscn")
+const PADDLE_SCENE:PackedScene = preload("res://Scenes/Arena/Paddle.tscn")
+const BALL_SCENE:PackedScene   = preload("res://Scenes/Arena/Ball.tscn")
 
-@onready var ui:UI = $UI
+@onready var ui:ArenaUI = $ArenaUI
 @onready var soundHandler:SoundHandler = $SoundHander
 
 @onready var paddleHandler:Node2D = $PadleList
@@ -26,13 +26,13 @@ var ball:Ball
 var scorePlayer1 = 0;
 var scorePlayer2 = 0;
 
-var scoreGoal:int = 1;
+var scoreGoal:int = 3;
 
 #==============================================================================
 func _ready() -> void:
+	state = STATE_ARENA_PLAYING
 	initPaddle()
 	initBall(-1)
-	state = STATE_ARENA_PLAYING
 
 #==============================================================================
 func initPaddle() -> void:
@@ -50,7 +50,6 @@ func initBall(target:int) -> void:
 	for i in ballHandler.get_children():i.queue_free()
 	ball = BALL_SCENE.instantiate()
 	ball.powerChanged.connect(ui.setPower)
-	ball.hasBounced.connect(soundHandler.playBounce)
 	ui.setPower(ball.speed)
 	match target:
 		-1:

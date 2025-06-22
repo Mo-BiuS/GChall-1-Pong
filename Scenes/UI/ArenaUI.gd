@@ -1,4 +1,4 @@
-class_name UI extends CanvasLayer
+class_name ArenaUI extends CanvasLayer
 
 @onready var battleUI:Control  = $BattleUI
 @onready var scoreLabel0:Label = $BattleUI/ScoreContainer0/VBoxContainer/ScoreLabel

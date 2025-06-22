@@ -4,6 +4,7 @@ const PADDLE_SCENE:PackedScene = preload("res://Scenes/Paddle.tscn")
 const BALL_SCENE:PackedScene   = preload("res://Scenes/Ball.tscn")
 
 @onready var ui:UI = $UI
+@onready var soundHandler:SoundHandler = $SoundHander
 
 @onready var paddleHandler:Node2D = $PadleList
 @onready var ballHandler  :Node2D = $BallList
@@ -40,21 +41,22 @@ func initBall(target:int) -> void:
 	for i in ballHandler.get_children():i.queue_free()
 	ball = BALL_SCENE.instantiate()
 	ball.powerChanged.connect(ui.setPower)
+	ball.hasBounced.connect(soundHandler.playBounce)
 	ui.setPower(ball.speed)
 	match target:
 		-1:
 			match randi()%2:
 				0:
-					ball.position = player1.position+Vector2( 32,0)
+					ball.position = player1.position+Vector2( 48,0)
 					player1.stickedBall = ball
 				1:
-					ball.position = player2.position+Vector2(-32,0)
+					ball.position = player2.position+Vector2(-48,0)
 					player2.stickedBall = ball
 		0:
-			ball.position = player1.position+Vector2( 32,0)
+			ball.position = player1.position+Vector2( 48,0)
 			player1.stickedBall = ball
 		1:
-			ball.position = player2.position+Vector2(-32,0)
+			ball.position = player2.position+Vector2(-48,0)
 			player2.stickedBall = ball
 		_:
 			print("Error ball generation invalid target")
@@ -63,11 +65,13 @@ func initBall(target:int) -> void:
 #==============================================================================
 func goalLeft(body: Node2D) -> void:
 	if(body is Ball):
+		soundHandler.playScore()
 		scorePlayer2+=1
 		ui.setScore1(scorePlayer2)
 		initBall(0)
 func goalRight(body: Node2D) -> void:
 	if(body is Ball):
+		soundHandler.playScore()
 		scorePlayer1+=1
-		ui.setScore0(scorePlayer2)
+		ui.setScore0(scorePlayer1)
 		initBall(1)

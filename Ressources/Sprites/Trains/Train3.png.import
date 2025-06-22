@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cii73c0jtnv36"
-path="res://.godot/imported/Ball.png-37bb59423ffc9e27d7745698095692aa.ctex"
+uid="uid://7xno6e4fh1no"
+path="res://.godot/imported/Train3.png-e132af331cd725e15892749b7eea17c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ressources/Sprites/Ball.png"
-dest_files=["res://.godot/imported/Ball.png-37bb59423ffc9e27d7745698095692aa.ctex"]
+source_file="res://Ressources/Sprites/Trains/Train3.png"
+dest_files=["res://.godot/imported/Train3.png-e132af331cd725e15892749b7eea17c8.ctex"]
 
 [params]
 

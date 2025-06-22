@@ -1,6 +1,7 @@
 class_name Paddle extends CharacterBody2D
 
 @onready var sprite:Sprite2D = $Sprite
+@onready var collisionShape:CollisionShape2D = $CollisionShape2D
 
 #INPUTS
 var inputList:Array = [["up1","down1","action1"],["up2","down2","action2"]]
@@ -20,12 +21,14 @@ var stickedBall:Ball = null
 func _ready() -> void:
 	match player:
 		0:
-			sprite.texture = load("res://Ressources/Sprites/Paddle 1.png")
+			sprite.texture = load("res://Ressources/Sprites/Trains/Train1.png")
 		1:
-			sprite.texture = load("res://Ressources/Sprites/Paddle 2.png")
+			sprite.texture = load("res://Ressources/Sprites/Trains/Train1.png")
+			sprite.flip_h = true
 		_:
 			print("Player Error")
-	halfSize = sprite.texture.get_size().y/2
+	halfSize = sprite.texture.get_size().y
+	collisionShape.shape.size = sprite.texture.get_size()*2-Vector2(2,2)
 
 func _process(delta: float) -> void:
 	var direction:int = 0;

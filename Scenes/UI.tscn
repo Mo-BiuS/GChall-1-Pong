@@ -15,11 +15,22 @@ offset_top = -128.0
 offset_right = 256.0
 grow_vertical = 0
 
-[node name="ScoreLabel0" type="Label" parent="ScoreContainer0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreContainer0"]
+layout_mode = 2
+
+[node name="TeamLabel" type="Label" parent="ScoreContainer0/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dewlx")
 theme_override_font_sizes/font_size = 32
-text = "Player 1 : 0"
+text = "Team 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ScoreContainer0/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dewlx")
+theme_override_font_sizes/font_size = 32
+text = "Score : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -35,11 +46,22 @@ offset_top = -128.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="ScoreLabel1" type="Label" parent="ScoreContainer1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreContainer1"]
+layout_mode = 2
+
+[node name="TeamLabel" type="Label" parent="ScoreContainer1/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dewlx")
 theme_override_font_sizes/font_size = 32
-text = "Player 2 : 0"
+text = "Team A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ScoreContainer1/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dewlx")
+theme_override_font_sizes/font_size = 32
+text = "Score : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 

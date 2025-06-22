@@ -1,6 +1,16 @@
-extends TileMapLayer
+class_name Map extends TileMapLayer
 
 @onready var shaderMaterial = material as ShaderMaterial
+@onready var leftPlayer1Pos:Marker2D = $StartingPos/LeftPlayer1Pos
+@onready var leftPlayer2Pos:Marker2D = $StartingPos/LeftPlayer2Pos
+@onready var RightPlayer1Pos:Marker2D = $StartingPos/RightPlayer1Pos
+@onready var RightPlayer2Pos:Marker2D = $StartingPos/RightPlayer2Pos
+
+func getLeftPlayer1Pos()->Vector2: return leftPlayer1Pos.position
+func getLeftPlayer2Pos()->Vector2: return leftPlayer2Pos.position
+func getRightPlayer1Pos()->Vector2: return RightPlayer1Pos.position
+func getRightPlayer2Pos()->Vector2: return RightPlayer2Pos.position
+
 var time:float
 
 func generateBitcodeMap() -> Array[int]:
@@ -20,10 +30,12 @@ func generateBitcodeMap() -> Array[int]:
 	return rep
 
 func _ready() -> void:
-	shaderMaterial.set_shader_parameter("bitcodeMap", generateBitcodeMap())
-	shaderMaterial.set_shader_parameter("scale", scale.x)
-	shaderMaterial.set_shader_parameter("tileSize", tile_set.tile_size)
+	if(material != null):
+		shaderMaterial.set_shader_parameter("bitcodeMap", generateBitcodeMap())
+		shaderMaterial.set_shader_parameter("scale", scale.x)
+		shaderMaterial.set_shader_parameter("tileSize", tile_set.tile_size)
 
 func _process(delta: float) -> void:
-	time += delta/2
-	shaderMaterial.set_shader_parameter("tcos", sin(time)*.2)
+	if(material != null):
+		time += delta/2
+		shaderMaterial.set_shader_parameter("tcos", sin(time)*.2)

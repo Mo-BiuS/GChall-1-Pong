@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6qq1j5ev3k2q"]
+
+[ext_resource type="Script" uid="uid://pt1u0j7wkvwt" path="res://Scenes/UI/MainMenuUI.gd" id="1_35rqa"]
+[ext_resource type="FontFile" uid="uid://cf4f86wtpb1ko" path="res://Ressources/Fonts/FSEX300.ttf" id="2_18ijf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18ijf"]
+bg_color = Color(0.383595, 0.210358, 0.622033, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55qnb"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 4
+
+[node name="MainMenuUI" type="CanvasLayer"]
+script = ExtResource("1_35rqa")
+
+[node name="StartMenu" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="StartMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_18ijf")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_18ijf")
+theme_override_font_sizes/font_size = 64
+text = "Pong"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxFlat_55qnb")
+
+[node name="Campagn" type="Button" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_18ijf")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Campagn"
+
+[node name="Local" type="Button" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_18ijf")
+theme_override_font_sizes/font_size = 32
+text = "Local"
+
+[node name="Online" type="Button" parent="StartMenu/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_18ijf")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Online"
+
+[connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/Campagn" to="." method="_on_campagn_pressed"]
+[connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/Local" to="." method="_on_local_pressed"]
+[connection signal="pressed" from="StartMenu/PanelContainer/MarginContainer/VBoxContainer/Online" to="." method="_on_online_pressed"]

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GChall 1 Pong"
-run/main_scene="uid://bn7ynwvsusu7l"
+run/main_scene="uid://p3y48jjkslp5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MAP_LIST="*res://Globals/mapList.gd"
 
 [display]
 

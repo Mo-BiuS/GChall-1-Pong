@@ -1,0 +1,104 @@
+[gd_scene load_steps=4 format=3 uid="uid://braxkctb4gnk0"]
+
+[ext_resource type="Script" uid="uid://barxmxda0oibe" path="res://Scenes/UI/Components/MapSelector.gd" id="1_hktcb"]
+[ext_resource type="FontFile" uid="uid://cf4f86wtpb1ko" path="res://Ressources/Fonts/FSEX300.ttf" id="1_mf1mk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70g6r"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 4
+
+[node name="MapSelector" type="PanelContainer" node_paths=PackedStringArray("mapPort", "nMapLabel", "mapNameLabel")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -184.0
+offset_right = 200.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hktcb")
+mapPort = NodePath("MarginContainer/VBoxContainer/SubViewportContainer/MapPort")
+nMapLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/nMap")
+mapNameLabel = NodePath("MarginContainer/VBoxContainer/MapName")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mf1mk")
+theme_override_font_sizes/font_size = 64
+text = "Map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxFlat_70g6r")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MapPort" type="SubViewport" parent="MarginContainer/VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(320, 192)
+render_target_update_mode = 4
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxFlat_70g6r")
+
+[node name="MapName" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mf1mk")
+theme_override_font_sizes/font_size = 24
+text = "MAP NAME"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="Prev" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mf1mk")
+theme_override_font_sizes/font_size = 24
+text = "Previous"
+
+[node name="nMap" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mf1mk")
+theme_override_font_sizes/font_size = 24
+text = "0/0"
+
+[node name="Next" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mf1mk")
+theme_override_font_sizes/font_size = 24
+text = "Next"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]

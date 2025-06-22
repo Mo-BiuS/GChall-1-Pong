@@ -11,13 +11,14 @@ const BALL_SCENE:PackedScene   = preload("res://Scenes/Arena/Ball.tscn")
 
 @onready var ui:ArenaUI = $ArenaUI
 @onready var soundHandler:SoundHandler = $SoundHander
-
+@onready var mapHandler   :Node2D = $MapHandler
 @onready var paddleHandler:Node2D = $PadleList
 @onready var ballHandler  :Node2D = $BallList
-@onready var tileMap      :TileMapLayer = $Decorations/TileMap
 
-@onready var startPos0:Marker2D = $StartingPos/Player1
-@onready var startPos1:Marker2D = $StartingPos/Player2
+
+var mode:int = 0
+var mapName:String = "Hourglass"
+var map:Map
 
 var player1:Paddle
 var player2:Paddle
@@ -30,9 +31,14 @@ var scoreGoal:int = 3;
 
 #==============================================================================
 func _ready() -> void:
-	state = STATE_ARENA_PLAYING
-	initPaddle()
-	initBall(-1)
+	print(MAP_LIST.ML[mode])
+	if(MAP_LIST.ML[mode][mapName] != null):
+		map = MAP_LIST.ML[mode].get(mapName).instantiate()
+		mapHandler.add_child(map)
+		state = STATE_ARENA_PLAYING
+		initPaddle()
+		initBall(-1)
+	else:print("ERROR MAP")
 
 #==============================================================================
 func initPaddle() -> void:
@@ -40,11 +46,11 @@ func initPaddle() -> void:
 	
 	player1 = PADDLE_SCENE.instantiate()
 	player1.player = 0
-	player1.position = startPos0.position
+	player1.position = map.getLeftPlayer1Pos()
 	paddleHandler.add_child(player1)
 	player2 = PADDLE_SCENE.instantiate()
 	player2.player = 1
-	player2.position = startPos1.position
+	player2.position = map.getRightPlayer1Pos()
 	paddleHandler.add_child(player2)
 func initBall(target:int) -> void:
 	for i in ballHandler.get_children():i.queue_free()
@@ -100,8 +106,8 @@ func replay() -> void:
 	scorePlayer2=0
 	ui.setScore0(scorePlayer1)
 	ui.setScore1(scorePlayer2)
-	player1.position = startPos0.position
-	player2.position = startPos1.position
+	player1.position = map.getLeftPlayer1Pos()
+	player2.position = map.getRightPlayer1Pos()
 	player1.isFreezed = false
 	player2.isFreezed = false
 	initBall(i)

@@ -9,6 +9,7 @@ const UP = 0; const DOWN = 1; const ACTION = 2
 var player:int = -1
 
 #VALUES
+var isFreezed:bool = false
 var acceleration:float = 500.0
 var deceleration:float = 300.0
 var maxSpeed :float = 200.
@@ -31,26 +32,28 @@ func _ready() -> void:
 	collisionShape.shape.size = sprite.texture.get_size()*2-Vector2(2,2)
 
 func _process(delta: float) -> void:
-	var direction:int = 0;
-	if(Input.is_action_pressed(inputList[player][UP  ])):direction-=1
-	if(Input.is_action_pressed(inputList[player][DOWN])):direction+=1
-	
-	if(direction != 0):
-		velocity.y += direction * acceleration * delta
-	else:
-		if abs(velocity.y) > 1:velocity.y -= sign(velocity.y) * deceleration * delta
-		else:velocity.y = 0
-	
-	velocity.y = clamp(velocity.y, -maxSpeed, maxSpeed)
-	
-	if(move_and_collide(velocity*delta) != null):velocity=Vector2(0,0)
-	
-	if(stickedBall != null):
-		if(stickedBall.position.y > position.y+halfSize):stickedBall.position.y = position.y+halfSize
-		if(stickedBall.position.y < position.y-halfSize):stickedBall.position.y = position.y-halfSize
+	if(!isFreezed):
+		var direction:int = 0;
+		if(Input.is_action_pressed(inputList[player][UP  ])):direction-=1
+		if(Input.is_action_pressed(inputList[player][DOWN])):direction+=1
+		
+		if(direction != 0):
+			velocity.y += direction * acceleration * delta
+		else:
+			if abs(velocity.y) > 1:velocity.y -= sign(velocity.y) * deceleration * delta
+			else:velocity.y = 0
+		
+		velocity.y = clamp(velocity.y, -maxSpeed, maxSpeed)
+		
+		if(move_and_collide(velocity*delta) != null):velocity=Vector2(0,0)
+		
+		if(stickedBall != null):
+			if(stickedBall.position.y > position.y+halfSize):stickedBall.position.y = position.y+halfSize
+			if(stickedBall.position.y < position.y-halfSize):stickedBall.position.y = position.y-halfSize
 
 func _input(event):
-	if(event.is_action_pressed(inputList[player][ACTION])):action()
+	if(!isFreezed):
+		if(event.is_action_pressed(inputList[player][ACTION])):action()
 
 #==============================================================================
 func action()->void:

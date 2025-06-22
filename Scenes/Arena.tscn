@@ -190,3 +190,5 @@ stream = ExtResource("7_0ds76")
 
 [connection signal="body_entered" from="GoalsList/LeftGoal" to="." method="goalLeft"]
 [connection signal="body_entered" from="GoalsList/RightGoal" to="." method="goalRight"]
+[connection signal="replay" from="UI" to="." method="replay"]
+[connection signal="toMenu" from="UI" to="." method="_on_ui_to_menu"]

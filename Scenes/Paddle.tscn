@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bvkan1wlih2cx" path="res://Scenes/Paddle.gd" id="1_8wypp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8wypp"]
-load_path = "res://.godot/imported/Paddle 1.png-462e53b0b5587cbf20bf12fc0b6250c7.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u0e0"]
 
